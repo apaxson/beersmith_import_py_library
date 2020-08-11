@@ -22,6 +22,14 @@ class Recipe(object):
         self.estog = 0
         self.estfg = 0
 
+class Fermentable(object):
+    #TODO Create fermentable object
+    pass
+
+class Yeast(object):
+    #TODO Create yeast object
+    pass
+
     def parse(self,file):
         f = open(file, 'rb')
         self.rawdata = xmltodict.parse(f)
@@ -35,9 +43,9 @@ class Recipe(object):
         self.brewer = __recipe['BREWER']
         self.version = __recipe['VERSION']
         self.batchsize = __recipe['BATCH_SIZE']
-        self.fermentables = __recipe['FERMENTABLES']
-        self.miscs = __recipe['MISCS']
-        self.yeasts = __recipe['YEASTS']
+        self.fermentables = __recipe['FERMENTABLES'] #TODO Make a list for Fermentable Objects
+        self.miscs = __recipe['MISCS'] # TODO Make a list of MISC objects
+        self.yeasts = __recipe['YEASTS'] #TODO Make a list of Yeast Objects
         __style = __recipe['STYLE']
         self.stylename = __style['NAME']
         self.stylecat = __style['CATEGORY']
